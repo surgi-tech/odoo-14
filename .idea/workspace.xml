@@ -14,7 +14,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>view_move_tree_receipt_picking_board</find>
+      <find>stock_inventory_line_tree2</find>
+      <find>check_manual_sequencing</find>
+      <find>view_account_payment_register_form</find>
     </findStrings>
+    <dirStrings>
+      <dir>F:\GIT\odoo-14</dir>
+      <dir>F:\GIT\odoo-14\account_journal_security</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +32,12 @@
         <option value="$PROJECT_DIR$/bi_picking_analytic/views/stock_move_views.xml" />
         <option value="$PROJECT_DIR$/surgi_inventory_adjustments_scan/view/stock_inventory_changes_view.xml" />
         <option value="$PROJECT_DIR$/surgi_in_out_inventory_restriction/views/stock_picking_changes_view.xml" />
+        <option value="$PROJECT_DIR$/surgi_accounting/views/account_payment_register.xml" />
+        <option value="$PROJECT_DIR$/surgi_accounting/views/register_payment.xml" />
+        <option value="$PROJECT_DIR$/multi_write_off_advanced/views/account_payment.xml" />
+        <option value="$PROJECT_DIR$/surgi_operation/views/account_payment_register_changes.xml" />
+        <option value="$PROJECT_DIR$/surgi_accounting/views/views.xml" />
+        <option value="$PROJECT_DIR$/multi_write_off_advanced/views/account_payment_view.xml" />
       </list>
     </option>
   </component>

@@ -3,10 +3,10 @@
     <data>
     	
     	<!-- inherit account invoice payment form -->
-    	<record id="view_account_payment_invoice_form_it_inherit" model="ir.ui.view">
+    	<record id="view_account_payment_register_form_it_inherit" model="ir.ui.view">
             <field name="name">account.payment.invoice.form.it.inherit</field>
             <field name="model">account.payment</field>
-            <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
             <field name="arch" type="xml">
             	<xpath expr="//form/sheet/group[1]" position="before">
             		<group colspan="4">
@@ -45,7 +45,7 @@
         <record id="view_account_payment_from_invoices_tis_inherit" model="ir.ui.view">
             <field name="name">account.register.payments.wizard.inherit</field>
             <field name="model">account.payment.register</field>
-            <field name="inherit_id" ref="account.view_account_payment_form_multi"/>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
             <field name="arch" type="xml">
             	<xpath expr="//form/group/group[1]" position="before">
             		<group colspan="4" col="4">
