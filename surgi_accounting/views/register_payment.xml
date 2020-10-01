@@ -6,7 +6,7 @@
         <record id="form_view_account_payment_register" model="ir.ui.view">
             <field name="name">name.account.register.payment.data</field>
             <field name="model">account.payment.register</field>
-            <field name="inherit_id" ref="account.view_account_payment_form_multi"/>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
             <field name="arch" type="xml">
 
                 <xpath expr="//button[@name='create_payments']" position="attributes">
