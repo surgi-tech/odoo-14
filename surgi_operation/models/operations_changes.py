@@ -7,7 +7,7 @@ from odoo import models
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 from odoo.tools import pytz
-from odoo.tools import timedelta
+from datetime import timedelta
 from odoo.exceptions import Warning
 # from dateutil.relativedelta import relativedelta
 
