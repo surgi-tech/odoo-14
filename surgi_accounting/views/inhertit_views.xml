@@ -19,15 +19,15 @@
         </record>
 
 
-        <record id="surgi_account_view_payment_tree" model="ir.ui.view">
-            <field name="name">account_view_payment_tree</field>
+        <record id="form_view_payment_account_view_payment_tree" model="ir.ui.view">
+            <field name="name">form_view_payment_account_view_payment_tree</field>
             <field name="model">account.payment</field>
             <field name="inherit_id" ref="account.view_account_payment_tree"/>
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='name']" position="after">
                     <!-- Add new fields here -->
-                    <field name="communication"/>
+                    <field name="ref"/>
                 </xpath>
 
             </field>

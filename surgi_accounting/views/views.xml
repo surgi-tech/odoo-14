@@ -3,34 +3,29 @@
 
 
         <!-- Inherit Form View to Modify it -->
-        <record id="add_fields_in_account_payment_views" model="ir.ui.view">
-            <field name="name">account_payment_form_views</field>
-            <field name="model">account.payment</field>
-            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
-            <field name="arch" type="xml">
+<!--                <record id="add_fields_in_account_payment_views" model="ir.ui.view">-->
+<!--                    <field name="name">account_payment_form_views</field>-->
+<!--                    <field name="model">account.payment</field>-->
+<!--                    <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>-->
+<!--                    <field name="arch" type="xml">-->
 
 
-                <!--<xpath expr="//field[@name='state']" position="replace">-->
-                <!--<field name="state" widget="statusbar" statusbar_visible="ar_validate,draft,posted,reconciled,cancelled"/>-->
-
-                <!--</xpath>-->
-
-                <xpath expr="//button[@name='post']" position="replace">
-                    <!--<attribute name="string">Save</attribute>-->
-                    <button name="post2" type="object" string="Save" class="oe_highlight"/>
-                </xpath>
+<!--                        <xpath expr="//button[@name='post']" position="replace">-->
+<!--                            <button name="post2" type="object" string="Save" class="oe_highlight"/>-->
+<!--                        </xpath>-->
 
 
-            </field>
-        </record>
+<!--                    </field>-->
+<!--                </record>-->
 
 
         <!-- Inherit Form View to Modify it -->
-        <record id="add_fields_payment_form_views_customer" model="ir.ui.view">
-            <field name="name">payment_form_views_customer_edits</field>
+        <record id="form_view_account_payment_inherit_pages" model="ir.ui.view">
+            <field name="name">form_view_account_payment_inherit_pages</field>
             <field name="model">account.payment</field>
             <field name="inherit_id" ref="account.view_account_payment_form"/>
             <field name="arch" type="xml">
+
 
                 <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
                     <group name="surgi_group_ZgqwO">
@@ -39,43 +34,94 @@
                             <field name="date_due" required="True"/>
                             <field name="collection_receipt_number"/>
                         </group>
-                    <group name="surgi_group_ZgqwO_right">
-                        <field name="collection_rep"/>
-                        <field name="collection_rep_name"/>
+                        <group name="surgi_group_ZgqwO_right">
+                            <field name="collection_rep"/>
+                            <field name="collection_rep_name"/>
+                        </group>
                     </group>
-                    </group>
-                </xpath>
-
-                <xpath expr="//button[@name='post']" position="replace">
-                    <button name="post" class="oe_highlight" string="Confirm" type="object"
-                            attrs="{'invisible':['|',('ar_validate', '=', False),('state','not in',['draft','ar_validate']),]}"
-                            groups="surgi_accounting.only_show_data_teregaly_team"
-                    />
-
-                </xpath>
-                <xpath expr="//button[@name='action_draft']" position="replace">
-                    <button name="action_draft" class="btn btn-secondary" attrs="{'invisible': [('state', '=', 'draft')]}"
-                            string="Reset To Draft" type="object" groups="surgi_accounting.only_show_data_teregaly_team"/>
-
-
                 </xpath>
 
 
-                <xpath expr="//button[@name='post']" position="before">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="ar_validate" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//button[@name='action_post']" position="before">
                     <button name="ar_validation" type="object" string="AR Validation" class="oe_highlight"
                             attrs="{'invisible':['|',('payment_type', '!=', 'inbound'),('ar_validate', '=', True)]}"
                             groups="surgi_accounting.only_show_data_groups_ar_team"/>
                 </xpath>
 
-                <xpath expr="//field[@name='communication']" position="after">
-                    <!-- Add your fields or attributes here -->
-                    <field name="ar_validate" attrs="{'invisible':['|',('payment_type', '!=', 'inbound'),]}" invisible="1"/>
+                <xpath expr="//button[@name='action_draft']" position="replace">
+                    <button name="action_draft" class="btn btn-secondary"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"
+                            string="Reset To Draft" type="object"
+                            groups="surgi_accounting.only_show_data_teregaly_team"/>
 
+                </xpath>
+
+                <xpath expr="//button[@name='action_post']" position="replace">
+                    <button name="action_post" class="oe_highlight" string="Confirm" type="object"
+                            attrs="{'invisible':[('ar_validate', '=', False),]}"
+                            groups="surgi_accounting.only_show_data_teregaly_team"
+                    />
+<!--                    ('state','not in',['draft','ar_validate']),-->
                 </xpath>
 
 
             </field>
         </record>
+
+
+        <!--        <record id="form_view_account_payment_inherit_page" model="ir.ui.view">-->
+        <!--            <field name="name">name.account.payment.edit.form</field>-->
+        <!--            <field name="model">account.payment</field>-->
+        <!--            <field name="inherit_id" ref="account.account.view_account_payment_form"/>-->
+        <!--            <field name="arch" type="xml">-->
+
+        <!--&lt;!&ndash;                <xpath expr="//form[1]/sheet[1]/group[1]" position="after">&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <group name="surgi_group_ZgqwO">&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <group name="surgi_group_ZgqwO_left">&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <field name="check_number" required="True"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <field name="date_due" required="True"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                            <field name="collection_receipt_number"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        </group>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <group name="surgi_group_ZgqwO_right">&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <field name="collection_rep"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                        <field name="collection_rep_name"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    </group>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    </group>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                <xpath expr="//button[@name='post']" position="replace">&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <button name="post" class="oe_highlight" string="Confirm" type="object"&ndash;&gt;-->
+        <!--&lt;!&ndash;                            attrs="{'invisible':['|',('ar_validate', '=', False),('state','not in',['draft','ar_validate']),]}"&ndash;&gt;-->
+        <!--&lt;!&ndash;                            groups="surgi_accounting.only_show_data_teregaly_team"&ndash;&gt;-->
+        <!--&lt;!&ndash;                    />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+        <!--&lt;!&ndash;                <xpath expr="//button[@name='action_draft']" position="replace">&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <button name="action_draft" class="btn btn-secondary" attrs="{'invisible': [('state', '=', 'draft')]}"&ndash;&gt;-->
+        <!--&lt;!&ndash;                            string="Reset To Draft" type="object" groups="surgi_accounting.only_show_data_teregaly_team"/>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;                <xpath expr="//button[@name='post']" position="before">&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <button name="ar_validation" type="object" string="AR Validation" class="oe_highlight"&ndash;&gt;-->
+        <!--&lt;!&ndash;                            attrs="{'invisible':['|',('payment_type', '!=', 'inbound'),('ar_validate', '=', True)]}"&ndash;&gt;-->
+        <!--&lt;!&ndash;                            groups="surgi_accounting.only_show_data_groups_ar_team"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </xpath>&ndash;&gt;-->
+
+        <!--                <xpath expr="//field[@name='communication']" position="after">-->
+        <!--                    <field name="ar_validate" attrs="{'invisible':['|',('payment_type', '!=', 'inbound'),]}" invisible="1"/>-->
+
+        <!--                </xpath>-->
+
+
+        <!--            </field>-->
+        <!--        </record>-->
 
         <!--############-->
 

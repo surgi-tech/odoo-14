@@ -16,11 +16,11 @@ class payment_register_surgi(models.TransientModel):
     collection_rep_name = fields.Char(string="Collection Rep", track_visibility='onchange')
     # second_approval = fields.Boolean("Second Approval")
 
-    def create_payments(self):
+    def action_create_payments(self):
 
         print("444444444444444444444444444444444444444444444")
         Payment = self.env['account.payment']
-        payments = Payment.create(self.get_payments_vals())
+        payments = self._create_payments()
         # payments.post2()
         # print(payments.post2())
         for pay in payments:

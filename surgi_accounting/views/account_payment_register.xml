@@ -3,7 +3,7 @@
 
         <!-- Inherit Form View to Modify it -->
         <record id="account_payment_register_form_views" model="ir.ui.view">
-            <field name="name">account_payment_register</field>
+            <field name="name">account_payment_register_form_views</field>
             <field name="model">account.payment.register</field>
             <field name="inherit_id" ref="account.view_account_payment_register_form"/>
             <field name="arch" type="xml">

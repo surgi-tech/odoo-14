@@ -122,7 +122,7 @@ class account_payment(models.Model):
     def onchange_writeoff_multi_accounts(self):
         if self.writeoff_multi_acc_ids:
             diff_amount = sum([line.amount for line in self.writeoff_multi_acc_ids])
-            self.amount = self.invoice_ids and self.invoice_ids[0].amount_residual - diff_amount
+            # self.amount = self.invoice_ids and self.invoice_ids[0].amount_residual - diff_amount
 
     def post(self):
         for move in self:
@@ -359,12 +359,12 @@ class writeoff_accounts(models.Model):
                                   default=lambda self: self.env.user.company_id.currency_id)
     payment_id = fields.Many2one('account.payment', string='Payment Record')
 
-    @api.onchange('amt_percent')
-    def _onchange_amt_percent(self):
-
-        if self.amt_percent and self.amt_percent > 0:
-            if self.payment_id.invoice_ids:
-                self.amount = self.payment_id.invoice_ids[0].amount_total * self.amt_percent / 100
+    # @api.onchange('amt_percent')
+    # def _onchange_amt_percent(self):
+    #
+    #     if self.amt_percent and self.amt_percent > 0:
+    #         if self.payment_id.invoice_ids:
+    #             self.amount = self.payment_id.invoice_ids[0].amount_total * self.amt_percent / 100
 
 
 class RegisterWriteoffMulti(models.TransientModel):
